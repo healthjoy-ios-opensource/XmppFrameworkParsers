@@ -44,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E26D5BA1B4E9B2B0030F2DD /* XmppPresenceProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppPresenceProto.h; sourceTree = "<group>"; };
+		7E26D5BB1B4E9D400030F2DD /* XmppIqProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppIqProto.h; sourceTree = "<group>"; };
 		7E56BF951B4D85C500D27597 /* XmppFrameworkParsers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XmppFrameworkParsers.h; sourceTree = SOURCE_ROOT; };
 		7E56BF961B4D85C500D27597 /* XmppFrameworkParsers.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XmppFrameworkParsers.pch; sourceTree = SOURCE_ROOT; };
 		7E7721001B4D84130082FA43 /* libXmppFrameworkParsers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXmppFrameworkParsers.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,8 @@
 				7EAC74171B4E799F00FB52EC /* XMPPJIDProto.h */,
 				7EAC74181B4E7F8E00FB52EC /* XMPPMessageProto.h */,
 				7EAC74191B4E7FDA00FB52EC /* XmppMutableMessageProto.h */,
+				7E26D5BA1B4E9B2B0030F2DD /* XmppPresenceProto.h */,
+				7E26D5BB1B4E9D400030F2DD /* XmppIqProto.h */,
 			);
 			path = StanzaInterfaces;
 			sourceTree = "<group>";

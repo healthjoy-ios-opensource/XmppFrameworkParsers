@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "XMPPElement.h"
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPElement.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaInterfaces/XmppPresenceProto.h>
+
 
 /**
  * The XMPPPresence class represents a <presence> element.
@@ -11,7 +13,7 @@
  * Simply add your own category to XMPPPresence to extend it with your own custom methods.
 **/
 
-@interface XMPPPresence : XMPPElement
+@interface XMPPPresence : XMPPElement<XmppPresenceProto>
 
 // Converts an NSXMLElement to an XMPPPresence element in place (no memory allocations or copying)
 + (XMPPPresence *)presenceFromElement:(NSXMLElement *)element;

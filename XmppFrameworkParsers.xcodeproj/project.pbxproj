@@ -46,6 +46,8 @@
 /* Begin PBXFileReference section */
 		7E26D5BA1B4E9B2B0030F2DD /* XmppPresenceProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppPresenceProto.h; sourceTree = "<group>"; };
 		7E26D5BB1B4E9D400030F2DD /* XmppIqProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppIqProto.h; sourceTree = "<group>"; };
+		7E26D5BC1B4E9F9D0030F2DD /* XMPPParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPParserDelegate.h; sourceTree = "<group>"; };
+		7E26D5BD1B4EA0100030F2DD /* XMPPParserProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPParserProto.h; sourceTree = "<group>"; };
 		7E56BF951B4D85C500D27597 /* XmppFrameworkParsers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XmppFrameworkParsers.h; sourceTree = SOURCE_ROOT; };
 		7E56BF961B4D85C500D27597 /* XmppFrameworkParsers.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XmppFrameworkParsers.pch; sourceTree = SOURCE_ROOT; };
 		7E7721001B4D84130082FA43 /* libXmppFrameworkParsers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXmppFrameworkParsers.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,8 @@
 			children = (
 				7E7721281B4D84C40082FA43 /* XMPPParser.h */,
 				7E7721291B4D84C40082FA43 /* XMPPParser.m */,
+				7E26D5BC1B4E9F9D0030F2DD /* XMPPParserDelegate.h */,
+				7E26D5BD1B4EA0100030F2DD /* XMPPParserProto.h */,
 			);
 			path = Parser;
 			sourceTree = "<group>";

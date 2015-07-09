@@ -1,7 +1,10 @@
 #import "XMPPParser.h"
+#import "XMPPParserDelegate.h"
 #import "XMPPLogging.h"
+
 #import <libxml/parser.h>
 #import <libxml/parserInternals.h>
+
 
 #if TARGET_OS_IPHONE | TARGET_IPHONE_SIMULATOR
     #import <KissXML/Private/DDXMLPrivate.h>

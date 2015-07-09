@@ -1,5 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "XMPPElement.h"
+
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPElement.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaInterfaces/XMPPMessageProto.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaInterfaces/XmppMutableMessageProto.h>
 
 /**
  * The XMPPMessage class represents a <message> element.
@@ -11,7 +14,7 @@
  * Simply add your own category to XMPPMessage to extend it with your own custom methods.
 **/
 
-@interface XMPPMessage : XMPPElement
+@interface XMPPMessage : XMPPElement<XMPPMessageProto, XmppMutableMessageProto>
 
 // Converts an NSXMLElement to an XMPPMessage element in place (no memory allocations or copying)
 + (XMPPMessage *)messageFromElement:(NSXMLElement *)element;
@@ -33,23 +36,5 @@
 - (id)initWithType:(NSString *)type elementID:(NSString *)eid;
 - (id)initWithType:(NSString *)type elementID:(NSString *)eid child:(NSXMLElement *)childElement;
 - (id)initWithType:(NSString *)type child:(NSXMLElement *)childElement;
-
-- (NSString *)type;
-- (NSString *)subject;
-- (NSString *)body;
-- (NSString *)bodyForLanguage:(NSString *)language;
-- (NSString *)thread;
-
-- (void)addSubject:(NSString *)subject;
-- (void)addBody:(NSString *)body;
-- (void)addBody:(NSString *)body withLanguage:(NSString *)language;
-- (void)addThread:(NSString *)thread;
-
-- (BOOL)isChatMessage;
-- (BOOL)isChatMessageWithBody;
-- (BOOL)isErrorMessage;
-- (BOOL)isMessageWithBody;
-
-- (NSError *)errorMessage;
 
 @end

@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 #import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPJIDCompareOptions.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaInterfaces/XMPPElementProto.h>
 @class XMPPJID;
 
 #if TARGET_OS_IPHONE | TARGET_IPHONE_SIMULATOR
@@ -17,7 +18,7 @@
  * On the iPhone, the KissXML library provides a drop-in replacement for Apple's NSXML classes.
 **/
 
-@interface XMPPElement : NSXMLElement <NSSecureCoding, NSCopying>
+@interface XMPPElement : NSXMLElement <XMPPElementProto, NSSecureCoding, NSCopying>
 
 #pragma mark Common Jabber Methods
 

@@ -1,9 +1,10 @@
 #import <Foundation/Foundation.h>
 
 #import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPJIDCompareOptions.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaInterfaces/XMPPJIDProto.h>
 
 
-@interface XMPPJID : NSObject <NSSecureCoding, NSCopying>
+@interface XMPPJID : NSObject <XMPPJIDProto, NSSecureCoding, NSCopying>
 {
 	__strong NSString *user;
 	__strong NSString *domain;

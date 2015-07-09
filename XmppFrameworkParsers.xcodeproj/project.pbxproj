@@ -74,6 +74,10 @@
 		7E7721361B4D84C40082FA43 /* XMPPStringPrep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPStringPrep.h; sourceTree = "<group>"; };
 		7E7721371B4D84C40082FA43 /* XMPPStringPrep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPStringPrep.m; sourceTree = "<group>"; };
 		7EAC74141B4E77D300FB52EC /* XMPPJIDCompareOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPJIDCompareOptions.h; sourceTree = "<group>"; };
+		7EAC74161B4E794300FB52EC /* XMPPElementProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPElementProto.h; sourceTree = "<group>"; };
+		7EAC74171B4E799F00FB52EC /* XMPPJIDProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPJIDProto.h; sourceTree = "<group>"; };
+		7EAC74181B4E7F8E00FB52EC /* XMPPMessageProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPMessageProto.h; sourceTree = "<group>"; };
+		7EAC74191B4E7FDA00FB52EC /* XmppMutableMessageProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppMutableMessageProto.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				7E7721221B4D84C40082FA43 /* CommonHeaders */,
 				7E7721271B4D84C40082FA43 /* Parser */,
 				7E77212A1B4D84C40082FA43 /* StanzaClasses */,
+				7EAC74151B4E791600FB52EC /* StanzaInterfaces */,
 				7E7721351B4D84C40082FA43 /* Utilities */,
 			);
 			path = XmppFramework;
@@ -209,6 +214,17 @@
 				7E7721371B4D84C40082FA43 /* XMPPStringPrep.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7EAC74151B4E791600FB52EC /* StanzaInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				7EAC74161B4E794300FB52EC /* XMPPElementProto.h */,
+				7EAC74171B4E799F00FB52EC /* XMPPJIDProto.h */,
+				7EAC74181B4E7F8E00FB52EC /* XMPPMessageProto.h */,
+				7EAC74191B4E7FDA00FB52EC /* XmppMutableMessageProto.h */,
+			);
+			path = StanzaInterfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

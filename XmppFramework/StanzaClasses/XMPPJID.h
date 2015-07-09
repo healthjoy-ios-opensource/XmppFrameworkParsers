@@ -1,15 +1,6 @@
 #import <Foundation/Foundation.h>
 
-enum XMPPJIDCompareOptions
-{
-	XMPPJIDCompareUser     = 1, // 001
-	XMPPJIDCompareDomain   = 2, // 010
-	XMPPJIDCompareResource = 4, // 100
-	
-	XMPPJIDCompareBare     = 3, // 011
-	XMPPJIDCompareFull     = 7, // 111
-};
-typedef enum XMPPJIDCompareOptions XMPPJIDCompareOptions;
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPJIDCompareOptions.h>
 
 
 @interface XMPPJID : NSObject <NSSecureCoding, NSCopying>

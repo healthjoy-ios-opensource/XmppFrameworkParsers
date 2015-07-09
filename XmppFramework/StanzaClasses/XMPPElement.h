@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "XMPPJID.h"
+
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPJIDCompareOptions.h>
+@class XMPPJID;
 
 #if TARGET_OS_IPHONE | TARGET_IPHONE_SIMULATOR
   #import <KissXML/DDXML.h>

@@ -73,6 +73,7 @@
 		7E7721341B4D84C40082FA43 /* XMPPPresence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPPresence.m; sourceTree = "<group>"; };
 		7E7721361B4D84C40082FA43 /* XMPPStringPrep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPStringPrep.h; sourceTree = "<group>"; };
 		7E7721371B4D84C40082FA43 /* XMPPStringPrep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPStringPrep.m; sourceTree = "<group>"; };
+		7EAC74141B4E77D300FB52EC /* XMPPJIDCompareOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPJIDCompareOptions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +197,7 @@
 				7E7721321B4D84C40082FA43 /* XMPPMessage.m */,
 				7E7721331B4D84C40082FA43 /* XMPPPresence.h */,
 				7E7721341B4D84C40082FA43 /* XMPPPresence.m */,
+				7EAC74141B4E77D300FB52EC /* XMPPJIDCompareOptions.h */,
 			);
 			path = StanzaClasses;
 			sourceTree = "<group>";

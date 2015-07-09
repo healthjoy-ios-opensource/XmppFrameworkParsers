@@ -1,13 +1,16 @@
 
 
 
-#import <XmppFrameworkParsers/Parser/XMPPParser.h>
-#import <XmppFrameworkParsers/StanzaClasses/XMPPElement.h>
+#import <XmppFrameworkParsers/XmppFramework/Parser/XMPPParser.h>
+#import <XmppFrameworkParsers/XmppFramework/Parser/XMPPParserDelegate.h>
 
-#import <XmppFrameworkParsers/StanzaClasses/XMPPIQ.h>
-#import <XmppFrameworkParsers/StanzaClasses/XMPPJID.h>
-#import <XmppFrameworkParsers/StanzaClasses/XMPPMessage.h>
-#import <XmppFrameworkParsers/StanzaClasses/XMPPPresence.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPElement.h>
+
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPIQ.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPJID.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPMessage.h>
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPPresence.h>
+
 
 
 

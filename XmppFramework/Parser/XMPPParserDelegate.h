@@ -13,7 +13,7 @@
 // @class NSXMLElement;
 // @class DDXMLElement;
 #if TARGET_OS_IPHONE | TARGET_IPHONE_SIMULATOR
-#import <KissXML/DDXML.h> // fucking macros inside
+#import <KissXML/DDXML.h> //  macros inside
 #endif
 
 

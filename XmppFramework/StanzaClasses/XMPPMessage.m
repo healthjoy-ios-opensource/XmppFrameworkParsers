@@ -248,6 +248,7 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     
     if (nil != elementWithTimestamp)
     {
+        // TODO : cache NSDateFormatter object for performance
         NSLocale* posixLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"];
         NSCalendar* gregorianCal = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
         NSDateFormatter* df = [NSDateFormatter new];

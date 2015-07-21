@@ -225,11 +225,49 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 	return [[self elementForName:@"thread"] stringValue];
 }
 
-- (NSString*)timestampString
+- (NSDate*)timestamp
 {
+    NSXMLElement* delayElement = [[self elementsForName: @"delay"] firstObject];
+    NSXMLElement* xElement = [[self elementsForName: @"x"] firstObject];
+
     
     
-    return self.objectCreationDate;
+    NSXMLElement* elementWithTimestamp = nil;
+    NSString* timestampFormat = nil;
+    if (nil != delayElement)
+    {
+        elementWithTimestamp = delayElement;
+        timestampFormat = @"yyyy-MM-dd'T'hh:mm:ss.SSSZ";
+    }
+    else
+    {
+        elementWithTimestamp = xElement;
+        timestampFormat = @"yyyy-MM-dd'T'hh:mm:ss";
+    }
+
+    
+    if (nil != elementWithTimestamp)
+    {
+        NSLocale* posixLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"];
+        NSCalendar* gregorianCal = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
+        NSDateFormatter* df = [NSDateFormatter new];
+        {
+            gregorianCal.locale = posixLocale;
+            df.locale = posixLocale;
+            df.calendar = gregorianCal;
+        }
+        df.dateFormat = timestampFormat;
+        
+        
+        NSString* strResult = [elementWithTimestamp attributeForName: @"stamp"];
+        NSDate* result = [df dateFromString: strResult];
+        
+        return result;
+    }
+    else
+    {
+        return self.objectCreationDate;
+    }
 }
 
 - (void)addSubject:(NSString *)subject

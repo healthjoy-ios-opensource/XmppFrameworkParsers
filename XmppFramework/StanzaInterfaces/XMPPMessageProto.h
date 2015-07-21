@@ -16,6 +16,7 @@
 - (NSString *)body;
 - (NSString *)bodyForLanguage:(NSString *)language;
 - (NSString *)thread;
+- (NSDate*)timestamp;
 
 - (BOOL)isChatMessage;
 - (BOOL)isChatMessageWithBody;
@@ -23,7 +24,5 @@
 - (BOOL)isMessageWithBody;
 
 - (NSError *)errorMessage;
-
-- (NSString*)timestampString;
 
 @end

@@ -9,7 +9,31 @@
 #endif
 
 
+@interface XMPPMessage()
+
+@property (nonatomic, copy) NSDate* objectCreationDate;
+
+@end
+
 @implementation XMPPMessage
+
+@dynamic objectCreationDate;
+
+- (void)dealloc
+{
+    objc_removeAssociatedObjects(self);
+}
+
+static const char* objectCreationDateKey = "objectCreationDateKey";
+- (void)setObjectCreationDate:(NSDate *)objectCreationDate
+{
+    objc_setAssociatedObject(self, objectCreationDateKey, objectCreationDate, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (NSDate*)objectCreationDate
+{
+    objc_getAssociatedObject(self, objectCreationDateKey);
+}
 
 #if DEBUG
 
@@ -40,8 +64,11 @@
 + (XMPPMessage *)messageFromElement:(NSXMLElement *)element
 {
 	object_setClass(element, [XMPPMessage class]);
-	
-	return (XMPPMessage *)element;
+    XMPPMessage* result = (XMPPMessage *)element;
+    
+    result.objectCreationDate = [NSDate date];
+    
+    return result;
 }
 
 + (XMPPMessage *)message
@@ -108,6 +135,8 @@
 {
 	if ((self = [super initWithName:@"message"]))
 	{
+        self.objectCreationDate = [NSDate date];
+        
 		if (type)
 			[self addAttributeWithName:@"type" stringValue:type];
 		
@@ -194,6 +223,13 @@
 - (NSString *)thread
 {
 	return [[self elementForName:@"thread"] stringValue];
+}
+
+- (NSString*)timestampString
+{
+    
+    
+    return self.objectCreationDate;
 }
 
 - (void)addSubject:(NSString *)subject

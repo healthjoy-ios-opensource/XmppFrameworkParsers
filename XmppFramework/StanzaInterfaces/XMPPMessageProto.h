@@ -24,4 +24,6 @@
 
 - (NSError *)errorMessage;
 
+- (NSString*)timestampString;
+
 @end

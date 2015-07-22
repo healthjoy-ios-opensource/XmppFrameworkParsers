@@ -32,7 +32,8 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 
 - (NSDate*)objectCreationDate
 {
-    objc_getAssociatedObject(self, objectCreationDateKey);
+    NSDate* result = objc_getAssociatedObject(self, objectCreationDateKey);
+    return result;
 }
 
 #if DEBUG
@@ -260,7 +261,7 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
         df.dateFormat = timestampFormat;
         
         
-        NSString* strResult = [elementWithTimestamp attributeForName: @"stamp"];
+        NSString* strResult = [[elementWithTimestamp attributeForName: @"stamp"] stringValue];
         NSDate* result = [df dateFromString: strResult];
         
         return result;

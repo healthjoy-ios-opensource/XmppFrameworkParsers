@@ -11,6 +11,6 @@
 #import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPMessage.h>
 #import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPPresence.h>
 
-
+#import <XmppFrameworkParsers/XmppFramework/StanzaClasses/XMPPMessageTimestampParser.h>
 
 

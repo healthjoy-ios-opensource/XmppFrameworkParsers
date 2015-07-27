@@ -2,7 +2,11 @@
 #import "XMPPJID.h"
 #import "NSXMLElement+XMPP.h"
 
+#import "XMPPMessageTimestampParser.h"
+
 #import <objc/runtime.h>
+
+
 
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
@@ -226,50 +230,21 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 	return [[self elementForName:@"thread"] stringValue];
 }
 
+- (void)setTimestamp:(NSDate *)timestamp
+{
+    self.objectCreationDate = timestamp;
+}
+
 - (NSDate*)timestamp
 {
-    NSXMLElement* delayElement = [[self elementsForName: @"delay"] firstObject];
-    NSXMLElement* xElement = [[self elementsForName: @"x"] firstObject];
-
+    NSDate* result = [XMPPMessageTimestampParser parseTimestampFromXmlElement: self];
     
-    
-    NSXMLElement* elementWithTimestamp = nil;
-    NSString* timestampFormat = nil;
-    if (nil != delayElement)
-    {
-        elementWithTimestamp = delayElement;
-        timestampFormat = @"yyyy-MM-dd'T'hh:mm:ss.SSSZ";
-    }
-    else
-    {
-        elementWithTimestamp = xElement;
-        timestampFormat = @"yyyy-MM-dd'T'hh:mm:ss";
-    }
-
-    
-    if (nil != elementWithTimestamp)
-    {
-        // TODO : cache NSDateFormatter object for performance
-        NSLocale* posixLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"];
-        NSCalendar* gregorianCal = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
-        NSDateFormatter* df = [NSDateFormatter new];
-        {
-            gregorianCal.locale = posixLocale;
-            df.locale = posixLocale;
-            df.calendar = gregorianCal;
-        }
-        df.dateFormat = timestampFormat;
-        
-        
-        NSString* strResult = [[elementWithTimestamp attributeForName: @"stamp"] stringValue];
-        NSDate* result = [df dateFromString: strResult];
-        
-        return result;
-    }
-    else
+    if (nil == result)
     {
         return self.objectCreationDate;
     }
+    
+    return result;
 }
 
 - (void)addSubject:(NSString *)subject

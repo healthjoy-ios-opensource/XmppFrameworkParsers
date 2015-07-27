@@ -19,6 +19,7 @@
 		7E7721401B4D84C40082FA43 /* XMPPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7721321B4D84C40082FA43 /* XMPPMessage.m */; };
 		7E7721411B4D84C40082FA43 /* XMPPPresence.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7721341B4D84C40082FA43 /* XMPPPresence.m */; };
 		7E7721421B4D84C40082FA43 /* XMPPStringPrep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7721371B4D84C40082FA43 /* XMPPStringPrep.m */; };
+		7EC3860B1B665130009CF6C3 /* XMPPMessageTimestampParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC3860A1B665130009CF6C3 /* XMPPMessageTimestampParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		7EAC74171B4E799F00FB52EC /* XMPPJIDProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPJIDProto.h; sourceTree = "<group>"; };
 		7EAC74181B4E7F8E00FB52EC /* XMPPMessageProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPMessageProto.h; sourceTree = "<group>"; };
 		7EAC74191B4E7FDA00FB52EC /* XmppMutableMessageProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppMutableMessageProto.h; sourceTree = "<group>"; };
+		7EC386091B665130009CF6C3 /* XMPPMessageTimestampParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPMessageTimestampParser.h; sourceTree = "<group>"; };
+		7EC3860A1B665130009CF6C3 /* XMPPMessageTimestampParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPMessageTimestampParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 				7E7721331B4D84C40082FA43 /* XMPPPresence.h */,
 				7E7721341B4D84C40082FA43 /* XMPPPresence.m */,
 				7EAC74141B4E77D300FB52EC /* XMPPJIDCompareOptions.h */,
+				7EC386091B665130009CF6C3 /* XMPPMessageTimestampParser.h */,
+				7EC3860A1B665130009CF6C3 /* XMPPMessageTimestampParser.m */,
 			);
 			path = StanzaClasses;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				7E77213C1B4D84C40082FA43 /* XMPPParser.m in Sources */,
 				7E7721381B4D84C40082FA43 /* NSData+XMPP.m in Sources */,
 				7E7721411B4D84C40082FA43 /* XMPPPresence.m in Sources */,
+				7EC3860B1B665130009CF6C3 /* XMPPMessageTimestampParser.m in Sources */,
 				7E7721421B4D84C40082FA43 /* XMPPStringPrep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

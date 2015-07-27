@@ -15,4 +15,6 @@
 - (void)addBody:(NSString *)body withLanguage:(NSString *)language;
 - (void)addThread:(NSString *)thread;
 
+- (void)setTimestamp:(NSDate*)timestamp;
+
 @end

@@ -13,6 +13,11 @@
 
 + (NSDate*)parseTimestampFromXmlElement:(id)xmlElement
 {
+    if (nil == xmlElement)
+    {
+        return nil;
+    }
+    
     NSParameterAssert([xmlElement isKindOfClass: [NSXMLElement class]]);
     NSXMLElement* selfElement = (NSXMLElement*)xmlElement;
     
@@ -39,7 +44,7 @@
     {
         // TODO : cache NSDateFormatter object for performance
         NSLocale* posixLocale = [[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"];
-        NSCalendar* gregorianCal = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
+        NSCalendar* gregorianCal = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
         NSDateFormatter* df = [NSDateFormatter new];
         {
             gregorianCal.locale = posixLocale;

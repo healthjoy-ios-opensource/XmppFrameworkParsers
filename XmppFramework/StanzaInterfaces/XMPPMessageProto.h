@@ -25,4 +25,6 @@
 
 - (NSError *)errorMessage;
 
+- (NSString*)messageId;
+
 @end

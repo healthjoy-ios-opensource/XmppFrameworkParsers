@@ -201,6 +201,20 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 	return [[self elementForName:@"body"] stringValue];
 }
 
+- (NSString*)messageId
+{
+    NSXMLElement* castedMessage = self;
+    NSXMLNode* idAttribute = [castedMessage attributeForName: @"id"];
+    if (nil == idAttribute)
+    {
+        return nil;
+    }
+    
+    
+    NSString* idValue = [idAttribute stringValue];
+    return idValue;
+}
+
 - (NSString *)bodyForLanguage:(NSString *)language
 {
     NSString *bodyForLanguage = nil;

@@ -13,6 +13,7 @@
 
 + (NSDate*)parseTimestampFromXmlElement:(id)xmlElement
 {
+    NSParameterAssert([xmlElement isKindOfClass: [NSXMLElement class]]);
     NSXMLElement* selfElement = (NSXMLElement*)xmlElement;
     
     NSXMLElement* delayElement = [[selfElement elementsForName: @"delay"] firstObject];

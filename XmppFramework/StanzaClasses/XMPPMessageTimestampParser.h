@@ -12,4 +12,7 @@
 
 + (NSDate*)parseTimestampFromXmlElement:(id)xmlElement;
 
++ (NSString*)parseIdFromXmlMessage:(id)xmlElement;
++ (NSString*)parseIdFromXmlElement:(id)xmlElement;
+
 @end

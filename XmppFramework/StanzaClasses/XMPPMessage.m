@@ -203,16 +203,7 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 
 - (NSString*)messageId
 {
-    NSXMLElement* castedMessage = self;
-    NSXMLNode* idAttribute = [castedMessage attributeForName: @"id"];
-    if (nil == idAttribute)
-    {
-        return nil;
-    }
-    
-    
-    NSString* idValue = [idAttribute stringValue];
-    return idValue;
+    return [XMPPMessageTimestampParser parseIdFromXmlMessage: self];
 }
 
 - (NSString *)bodyForLanguage:(NSString *)language

@@ -31,12 +31,12 @@
     if (nil != delayElement)
     {
         elementWithTimestamp = delayElement;
-        timestampFormat = @"yyyy-MM-dd'T'hh:mm:ss.SSSZ";
+        timestampFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
     }
     else
     {
         elementWithTimestamp = xElement;
-        timestampFormat = @"yyyy-MM-dd'T'hh:mm:ss";
+        timestampFormat = @"yyyy-MM-dd'T'HH:mm:ss";
     }
     
     
@@ -60,6 +60,52 @@
         return result;
     }
     
+    return nil;
+}
+
++ (NSString*)parseIdFromXmlMessage:(id)xmlElement
+{
+    NSXMLElement* castedMessage = (NSXMLElement*)xmlElement;
+    if (nil == xmlElement)
+    {
+        return nil;
+    }
+    
+    NSString* result = [self parseIdFromXmlElement: xmlElement];
+    if (nil != result)
+    {
+        return result;
+    }
+ 
+    
+    // recursive calls follow
+    NSXMLElement* archivedElement = [[castedMessage elementsForName: @"archived"] firstObject];
+    if (nil != archivedElement)
+    {
+        result = [self parseIdFromXmlMessage: archivedElement];
+        return result;
+    }
+    
+    NSXMLElement* resultElement = [[castedMessage elementsForName: @"result"] firstObject];
+    if (nil != resultElement)
+    {
+        result = [self parseIdFromXmlMessage: resultElement];
+        return result;
+    }
+    
+    return nil;
+}
+
++ (NSString*)parseIdFromXmlElement:(id)xmlElement
+{
+    NSXMLElement* castedMessage = (NSXMLElement*)xmlElement;
+    NSXMLNode* idAttribute = [castedMessage attributeForName: @"id"];
+    if (nil != idAttribute)
+    {
+        NSString* idValue = [idAttribute stringValue];
+        return idValue;
+    }
+
     return nil;
 }
 

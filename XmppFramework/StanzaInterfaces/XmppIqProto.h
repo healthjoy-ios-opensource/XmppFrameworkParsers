@@ -19,6 +19,9 @@
  **/
 - (NSString *)type;
 
+- (NSString *)avatar;
+- (NSString *)nickname;
+
 /**
  * Convenience methods for determining the IQ type.
  **/
@@ -26,6 +29,7 @@
 - (BOOL)isSetIQ;
 - (BOOL)isResultIQ;
 - (BOOL)isErrorIQ;
+- (BOOL)isAvatarIQ;
 
 /**
  * Convenience method for determining if the IQ is of type 'get' or 'set'.

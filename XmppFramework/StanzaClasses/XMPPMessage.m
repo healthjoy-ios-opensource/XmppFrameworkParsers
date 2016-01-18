@@ -186,6 +186,14 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return [XMPPMessage messageFromElement:element];
 }
 
+- (NSString *)jid
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *presenceDirectiveNode = [[xNode elementsForName: @"chat-presence-directive"] firstObject];
+    
+    return [[presenceDirectiveNode attributeForName:@"jid"] stringValue];
+}
+
 - (NSString *)type
 {
     return [[self attributeForName:@"type"] stringValue];
@@ -300,6 +308,86 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (BOOL)isErrorMessage
 {
     return [[[self attributeForName:@"type"] stringValue] isEqualToString:@"error"];
+}
+
+- (BOOL)isMessageSelectDirective
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-select-directive"];
+    
+    return (selectDirectiveNode.count != 0);
+}
+
+- (NSString *)valueOfOptionDirective {
+    
+    return [[self attributeForName:@"value"] stringValue];
+}
+
+- (NSArray *)optionDirectives
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* selectDirectiveNode = [[xNode elementsForName: @"chat-select-directive"] firstObject];
+    
+    NSArray* optionDirectives = [selectDirectiveNode elementsForName: @"chat-option-directive"];
+    
+    return optionDirectives;
+}
+
+- (BOOL)isMessagePresenceDirective
+{
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *presenceDirectiveNode = [[xNode elementsForName: @"chat-presence-directive"] firstObject];
+    
+    NSString *status = [[presenceDirectiveNode attributeForName:@"status"] stringValue];
+
+    return ([status isEqualToString:@"available"]);
+}
+
+- (BOOL)isMessageHasPHAType
+{
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *presenceDirectiveNode = [[xNode elementsForName: @"chat-presence-directive"] firstObject];
+    
+    NSString *type = [[presenceDirectiveNode attributeForName:@"type"] stringValue];
+    
+    return ([type isEqualToString:@"PHA"]);
+}
+
+- (NSString *)nicknameOfPresenceDirective
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *presenceDirectiveNode = [[xNode elementsForName: @"chat-presence-directive"] firstObject];
+    
+    NSString *nickname = [[presenceDirectiveNode attributeForName:@"nickname"] stringValue];
+    
+    return nickname;
+}
+
+- (BOOL)isChatSelectDirective
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *chatSelectNodes = [xNode elementsForName: @"chat-select-directive"];
+    
+    return (chatSelectNodes.count != 0);
+}
+
+- (NSString*)chatSelectDirectiveID
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    
+    NSString *archivedID = [[xNode attributeForName:@"id"] stringValue];
+    
+    return archivedID;
+}
+
+- (NSString*)chatSelectDirectiveValue
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-select-directive"] firstObject];
+    
+    NSString *archivedValue = [[chatSelectNode attributeForName:@"value"] stringValue];
+    
+    return archivedValue;
 }
 
 - (NSError *)errorMessage

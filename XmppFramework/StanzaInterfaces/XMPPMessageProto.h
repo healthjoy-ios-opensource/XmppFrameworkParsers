@@ -11,17 +11,30 @@
 
 @protocol XMPPMessageProto <XMPPElementProto>
 
+- (NSString *)jid;
 - (NSString *)type;
 - (NSString *)subject;
 - (NSString *)body;
 - (NSString *)bodyForLanguage:(NSString *)language;
 - (NSString *)thread;
 - (NSDate*)timestamp;
+- (NSString *)nicknameOfPresenceDirective;
 
 - (BOOL)isChatMessage;
 - (BOOL)isChatMessageWithBody;
 - (BOOL)isErrorMessage;
 - (BOOL)isMessageWithBody;
+
+- (BOOL)isMessagePresenceDirective;
+- (BOOL)isMessageHasPHAType;
+
+- (BOOL)isMessageSelectDirective;
+- (NSString *)valueOfOptionDirective;
+- (NSArray *)optionDirectives;
+
+- (BOOL)isChatSelectDirective;
+- (NSString*)chatSelectDirectiveID;
+- (NSString*)chatSelectDirectiveValue;
 
 - (NSError *)errorMessage;
 

@@ -157,6 +157,22 @@
 	return [[self attributeStringValueForName:@"type"] lowercaseString];
 }
 
+- (NSString *)avatar
+{
+    NSXMLElement *vCardNode = [[self elementsForName: @"vCard"] firstObject];
+    NSXMLElement *photoNode = [[vCardNode elementsForName: @"PHOTO"] firstObject];
+    
+    return [photoNode stringValue];
+}
+
+- (NSString *)nickname
+{
+    NSXMLElement *vCardNode = [[self elementsForName: @"vCard"] firstObject];
+    NSXMLElement *nicknameNode = [[vCardNode elementsForName: @"NICKNAME"] firstObject];
+    
+    return [nicknameNode stringValue];
+}
+
 - (BOOL)isGetIQ
 {
 	return [[self type] isEqualToString:@"get"];
@@ -175,6 +191,14 @@
 - (BOOL)isErrorIQ
 {
 	return [[self type] isEqualToString:@"error"];
+}
+
+- (BOOL)isAvatarIQ
+{
+    NSXMLElement *vCardNode = [[self elementsForName: @"vCard"] firstObject];
+    NSXMLElement *photoNode = [[vCardNode elementsForName: @"PHOTO"] firstObject];
+    
+    return (photoNode != nil);
 }
 
 - (BOOL)requiresResponse

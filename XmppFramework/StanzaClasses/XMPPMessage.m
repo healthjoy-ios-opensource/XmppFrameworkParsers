@@ -343,6 +343,18 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return ([status isEqualToString:@"available"]);
 }
 
+- (BOOL)isMessagePresenceDirectiveLeaveDoc
+{
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *presenceDirectiveNode = [[xNode elementsForName: @"chat-presence-directive"] firstObject];
+    
+    NSString *status = [[presenceDirectiveNode attributeForName:@"status"] stringValue];
+    NSString *type = [[presenceDirectiveNode attributeForName:@"type"] stringValue];
+    
+    return ([status isEqualToString:@"unavailable"] &&
+            [type isEqualToString:@"MD"]);
+}
+
 - (BOOL)isMessageHasPHAType
 {
     NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
@@ -361,14 +373,6 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     NSString *nickname = [[presenceDirectiveNode attributeForName:@"nickname"] stringValue];
     
     return nickname;
-}
-
-- (BOOL)isChatSelectDirective
-{
-    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *chatSelectNodes = [xNode elementsForName: @"chat-select-directive"];
-    
-    return (chatSelectNodes.count != 0);
 }
 
 - (NSString*)chatSelectDirectiveID

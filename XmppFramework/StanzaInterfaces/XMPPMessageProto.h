@@ -27,12 +27,12 @@
 
 - (BOOL)isMessagePresenceDirective;
 - (BOOL)isMessageHasPHAType;
+- (BOOL)isMessagePresenceDirectiveLeaveDoc;
 
 - (BOOL)isMessageSelectDirective;
 - (NSString *)valueOfOptionDirective;
 - (NSArray *)optionDirectives;
 
-- (BOOL)isChatSelectDirective;
 - (NSString*)chatSelectDirectiveID;
 - (NSString*)chatSelectDirectiveValue;
 

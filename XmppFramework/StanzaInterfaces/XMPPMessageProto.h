@@ -11,6 +11,8 @@
 
 @protocol XMPPMessageProto <XMPPElementProto>
 
+- (NSString *)identification;
+
 - (NSString *)jid;
 - (NSString *)type;
 - (NSString *)subject;

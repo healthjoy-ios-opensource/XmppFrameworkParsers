@@ -186,6 +186,11 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return [XMPPMessage messageFromElement:element];
 }
 
+- (NSString *)identification
+{
+    return [[self attributeForName:@"id"] stringValue];
+}
+
 - (NSString *)jid
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];

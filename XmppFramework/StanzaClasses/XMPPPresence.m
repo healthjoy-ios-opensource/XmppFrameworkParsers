@@ -142,4 +142,12 @@
 	return [[self type] isEqualToString:@"error"];
 }
 
+- (NSString *)jid
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *itemNode = [[xNode elementsForName: @"item"] firstObject];
+    
+    return [[itemNode attributeForName:@"jid"] stringValue];
+}
+
 @end

@@ -204,6 +204,13 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return [[self attributeForName:@"type"] stringValue];
 }
 
+- (NSString *)xType
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    
+    return [[xNode attributeForName:@"type"] stringValue];
+}
+
 - (NSString *)subject
 {
 	return [[self elementForName:@"subject"] stringValue];
@@ -338,6 +345,24 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return optionDirectives;
 }
 
+- (BOOL)isMessageSimpleSelectDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-simple-select-directive"];
+    
+    return (selectDirectiveNode.count != 0);
+}
+
+- (NSArray *)simpleOptionDirectives
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* selectDirectiveNode = [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
+    
+    NSArray* optionDirectives = [selectDirectiveNode elementsForName: @"chat-simple-option-directive"];
+    
+    return optionDirectives;
+}
+
 - (BOOL)isMessagePresenceDirective
 {
     NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
@@ -393,6 +418,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
     NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-select-directive"] firstObject];
+    
+    NSString *archivedValue = [[chatSelectNode attributeForName:@"value"] stringValue];
+    
+    return archivedValue;
+}
+
+- (NSString*)chatSimpleSelectDirectiveValue
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
     
     NSString *archivedValue = [[chatSelectNode attributeForName:@"value"] stringValue];
     

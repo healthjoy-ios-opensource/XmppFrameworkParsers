@@ -15,6 +15,7 @@
 
 - (NSString *)jid;
 - (NSString *)type;
+- (NSString *)xType;
 - (NSString *)subject;
 - (NSString *)body;
 - (NSString *)bodyForLanguage:(NSString *)language;
@@ -35,8 +36,13 @@
 - (NSString *)valueOfOptionDirective;
 - (NSArray *)optionDirectives;
 
+- (BOOL)isMessageSimpleSelectDirective;
+- (NSArray *)simpleOptionDirectives;
+
 - (NSString*)chatSelectDirectiveID;
 - (NSString*)chatSelectDirectiveValue;
+
+- (NSString*)chatSimpleSelectDirectiveValue;
 
 - (NSError *)errorMessage;
 

@@ -330,6 +330,32 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (selectDirectiveNode.count != 0);
 }
 
+- (BOOL)isMessageAutocompleteDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    
+    return (selectDirectiveNode.count != 0);
+}
+
+- (NSString *)sourceOfMessageAutocompleteDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSString *source = [[[selectDirectiveNode firstObject] attributeForName:@"source"] stringValue];
+    
+    return source;
+}
+
+- (NSString *)showValueOfMessageAutocompleteDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSString *showValue = [[[selectDirectiveNode firstObject] attributeForName:@"show_value"] stringValue];
+    
+    return showValue;
+}
+
 - (NSString *)valueOfOptionDirective {
     
     return [[self attributeForName:@"value"] stringValue];
@@ -339,7 +365,6 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
     NSXMLElement* selectDirectiveNode = [[xNode elementsForName: @"chat-select-directive"] firstObject];
-    
     NSArray* optionDirectives = [selectDirectiveNode elementsForName: @"chat-option-directive"];
     
     return optionDirectives;

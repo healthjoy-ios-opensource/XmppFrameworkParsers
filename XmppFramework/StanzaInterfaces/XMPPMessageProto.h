@@ -32,6 +32,10 @@
 - (BOOL)isMessageHasPHAType;
 - (BOOL)isMessagePresenceDirectiveLeaveDoc;
 
+- (BOOL)isMessageAutocompleteDirective;
+- (NSString *)sourceOfMessageAutocompleteDirective;
+- (NSString *)showValueOfMessageAutocompleteDirective;
+
 - (BOOL)isMessageSelectDirective;
 - (NSString *)valueOfOptionDirective;
 - (NSArray *)optionDirectives;

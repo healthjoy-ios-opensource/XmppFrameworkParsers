@@ -36,6 +36,12 @@
 - (NSString *)sourceOfMessageAutocompleteDirective;
 - (NSString *)showValueOfMessageAutocompleteDirective;
 
+- (BOOL)isMessagePhoneInputDirective;
+- (NSString *)valueOfMessagePhoneInputDirective;
+
+- (BOOL)isMessageZipInputDirective;
+- (NSString *)valueOfMessageZipInputDirective;
+
 - (BOOL)isMessageSelectDirective;
 - (NSString *)valueOfOptionDirective;
 - (NSArray *)optionDirectives;

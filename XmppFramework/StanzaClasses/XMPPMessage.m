@@ -333,16 +333,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (BOOL)isMessageAutocompleteDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
     
-    return (selectDirectiveNode.count != 0);
+    return (directiveNode.count != 0);
 }
 
 - (NSString *)sourceOfMessageAutocompleteDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
-    NSString *source = [[[selectDirectiveNode firstObject] attributeForName:@"source"] stringValue];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSString *source = [[[directiveNode firstObject] attributeForName:@"source"] stringValue];
     
     return source;
 }
@@ -350,10 +350,44 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (NSString *)showValueOfMessageAutocompleteDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *selectDirectiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
-    NSString *showValue = [[[selectDirectiveNode firstObject] attributeForName:@"show_value"] stringValue];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSString *showValue = [[[directiveNode firstObject] attributeForName:@"show_value"] stringValue];
     
     return showValue;
+}
+
+- (BOOL)isMessagePhoneInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-phone-input-directive"];
+    
+    return (directiveNode.count != 0);
+}
+
+- (NSString *)valueOfMessagePhoneInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-phone-input-directive"];
+    NSString *value = [[[directiveNode firstObject] attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+
+- (BOOL)isMessageZipInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-zip-input-directive"];
+    
+    return (directiveNode.count != 0);
+}
+
+- (NSString *)valueOfMessageZipInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-zip-input-directive"];
+    NSString *value = [[[directiveNode firstObject] attributeForName:@"value"] stringValue];
+    
+    return value;
 }
 
 - (NSString *)valueOfOptionDirective {

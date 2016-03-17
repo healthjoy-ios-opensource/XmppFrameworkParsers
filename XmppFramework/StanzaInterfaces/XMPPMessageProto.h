@@ -39,6 +39,9 @@
 - (BOOL)isMessagePhoneInputDirective;
 - (NSString *)valueOfMessagePhoneInputDirective;
 
+- (BOOL)isMessageDobInputDirective;
+- (NSString *)valueOfMessageDobInputDirective;
+
 - (BOOL)isMessageZipInputDirective;
 - (NSString *)valueOfMessageZipInputDirective;
 

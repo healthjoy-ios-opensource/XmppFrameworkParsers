@@ -390,6 +390,23 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return value;
 }
 
+- (BOOL)isMessageDobInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-dob-input-directive"];
+    
+    return (directiveNode.count != 0);
+}
+
+- (NSString *)valueOfMessageDobInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-dob-input-directive"];
+    NSString *value = [[[directiveNode firstObject] attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+
 - (NSString *)valueOfOptionDirective {
     
     return [[self attributeForName:@"value"] stringValue];

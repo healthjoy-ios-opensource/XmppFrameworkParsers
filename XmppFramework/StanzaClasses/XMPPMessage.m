@@ -204,6 +204,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return [[self attributeForName:@"type"] stringValue];
 }
 
+- (BOOL)isXTypeSet {
+    
+    return ([[self xType] isEqualToString:@"set"]);
+}
+
+- (BOOL)isXTypeResult {
+    
+    return ([[self xType] isEqualToString:@"result"]);
+}
+
 - (NSString *)xType
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
@@ -410,6 +420,15 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (NSString *)valueOfOptionDirective {
     
     return [[self attributeForName:@"value"] stringValue];
+}
+
+- (NSString *)titleOfOptionDirective {
+    
+    return [[self attributeForName:@"title"] stringValue];
+}
+- (NSString *)typeOfOptionDirective {
+    
+    return [[self attributeForName:@"type"] stringValue];
 }
 
 - (NSArray *)optionDirectives

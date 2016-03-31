@@ -16,6 +16,8 @@
 - (NSString *)jid;
 - (NSString *)type;
 - (NSString *)xType;
+- (BOOL)isXTypeSet;
+- (BOOL)isXTypeResult;
 - (NSString *)subject;
 - (NSString *)body;
 - (NSString *)bodyForLanguage:(NSString *)language;
@@ -47,6 +49,8 @@
 
 - (BOOL)isMessageSelectDirective;
 - (NSString *)valueOfOptionDirective;
+- (NSString *)titleOfOptionDirective;
+- (NSString *)typeOfOptionDirective;
 - (NSArray *)optionDirectives;
 
 - (BOOL)isMessageSimpleSelectDirective;

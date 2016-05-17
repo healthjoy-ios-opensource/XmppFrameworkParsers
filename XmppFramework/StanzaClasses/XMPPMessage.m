@@ -593,4 +593,19 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 	return ([self elementForName:@"body"] != nil);
 }
 
+- (BOOL)isChatSimpleInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatSimpleInputNode = [[xNode elementsForName: @"chat-simple-input-directive"] firstObject];
+    
+    return (chatSimpleInputNode != nil) ? YES : NO;
+}
+
+- (BOOL)isChatControls {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    
+    return [[[xNode attributeForName:@"chat-controls"] stringValue] boolValue];
+}
+
 @end

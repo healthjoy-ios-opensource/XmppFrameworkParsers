@@ -71,4 +71,8 @@
 
 - (NSString*)messageId;
 
+- (BOOL)isChatSimpleInputDirective;
+
+- (BOOL)isChatControls;
+
 @end

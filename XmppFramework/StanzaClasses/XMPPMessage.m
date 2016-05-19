@@ -417,6 +417,15 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return value;
 }
 
+- (NSString *)valueOfMessageTextInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-simple-input-directive"];
+    NSString *value = [[[directiveNode firstObject] attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+
 - (NSString *)valueOfOptionDirective {
     
     return [[self attributeForName:@"value"] stringValue];

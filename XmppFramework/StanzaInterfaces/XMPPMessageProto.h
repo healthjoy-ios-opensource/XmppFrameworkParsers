@@ -72,6 +72,7 @@
 - (NSString*)messageId;
 
 - (BOOL)isChatSimpleInputDirective;
+- (NSString *)valueOfMessageTextInputDirective;
 
 - (BOOL)isChatControls;
 

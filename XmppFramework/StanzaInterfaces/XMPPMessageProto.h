@@ -76,4 +76,6 @@
 
 - (BOOL)isChatControls;
 
+- (BOOL)isCompletedDirective;
+
 @end

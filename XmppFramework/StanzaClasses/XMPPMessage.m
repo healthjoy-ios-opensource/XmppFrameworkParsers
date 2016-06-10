@@ -621,8 +621,9 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (BOOL)isCompletedDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCompletedNode = [[xNode elementsForName: @"chat-completed-directive"] firstObject];
     
-    return [[[xNode attributeForName:@"chat-completed-directive"] stringValue] boolValue];
+    return (chatCompletedNode != nil) ? YES : NO;
 }
 
 - (BOOL)isChatHeaderParameters {

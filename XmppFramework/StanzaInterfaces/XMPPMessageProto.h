@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <XmppFrameworkParsers/XmppFramework/StanzaInterfaces/XMPPElementProto.h>
 
+@class UIColor;
+
 @protocol XMPPMessageProto <XMPPElementProto>
 
 - (NSString *)identification;
@@ -77,5 +79,10 @@
 - (BOOL)isChatControls;
 
 - (BOOL)isCompletedDirective;
+
+- (BOOL)isChatHeaderParameters;
+- (UIColor*)chatHeaderColor;
+- (BOOL)chatHeaderSiska;
+- (NSString*)chatHeaderTitle;
 
 @end

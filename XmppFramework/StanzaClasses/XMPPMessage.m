@@ -6,6 +6,7 @@
 
 #import <objc/runtime.h>
 
+#import <UIKit/UIKit.h>
 
 
 #if ! __has_feature(objc_arc)
@@ -622,6 +623,65 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
     
     return [[[xNode attributeForName:@"chat-completed-directive"] stringValue] boolValue];
+}
+
+- (BOOL)isChatHeaderParameters {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatHeaderParametersNode = [[xNode elementsForName: @"chat-header-parameters"] firstObject];
+    
+    return (chatHeaderParametersNode != nil) ? YES : NO;
+}
+
+- (UIColor*)chatHeaderColor {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatHeaderNode = [[xNode elementsForName: @"chat-header-parameters"] firstObject];
+    
+    NSString *colorStr = [[chatHeaderNode attributeForName:@"color"] stringValue];
+    colorStr = [XMPPMessage removeSlashAndQuotes:colorStr];
+    
+    UIColor *value = [XMPPMessage colorFromHexString:colorStr];
+    
+    return value;
+}
+
+- (BOOL)chatHeaderSiska {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatHeaderNode = [[xNode elementsForName: @"chat-header-parameters"] firstObject];
+    
+    return [[[chatHeaderNode attributeForName:@"siska"] stringValue] boolValue];
+}
+
+- (NSString*)chatHeaderTitle {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatHeaderNode = [[xNode elementsForName: @"chat-header-parameters"] firstObject];
+    
+    NSString *value = [[chatHeaderNode attributeForName:@"title"] stringValue];
+    value = [XMPPMessage removeSlashAndQuotes:value];
+    
+    return value;
+}
+
+#pragma mark - Private
+
++ (NSString *)removeSlashAndQuotes:(NSString *)string {
+    
+    string = [string stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    
+    return string;
+}
+
+// Assumes input like "#00FF00" (#RRGGBB).
++ (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:(float)((rgbValue & 0xFF0000) >> 16)/255.0f green:(float)((rgbValue & 0xFF00) >> 8)/255.0f blue:(float)(rgbValue & 0xFF)/255.0f alpha:1.0];
 }
 
 @end

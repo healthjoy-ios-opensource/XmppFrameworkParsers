@@ -75,6 +75,7 @@
 
 - (BOOL)isChatSimpleInputDirective;
 - (NSString *)valueOfMessageTextInputDirective;
+- (NSString *)chatSimpleInputDirectivePlaceholder;
 
 - (BOOL)isChatControls;
 

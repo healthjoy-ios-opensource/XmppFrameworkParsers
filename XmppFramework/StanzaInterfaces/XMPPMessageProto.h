@@ -86,4 +86,8 @@
 - (BOOL)chatHeaderSiska;
 - (NSString*)chatHeaderTitle;
 
+- (BOOL)isChatBrowseDirective;
+- (BOOL)isChatBrowseSecure;
+- (NSString*)chatBrowseURL;
+
 @end

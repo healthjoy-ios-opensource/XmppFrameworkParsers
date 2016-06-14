@@ -620,11 +620,12 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (chatSimpleInputNode != nil) ? YES : NO;
 }
 
+
 - (BOOL)isChatControls {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
     
-    return [[[xNode attributeForName:@"chat-controls"] stringValue] boolValue];
+    return ([[[xNode attributeForName:@"chat-controls"] stringValue] boolValue]);
 }
 
 - (BOOL)isCompletedDirective {
@@ -671,6 +672,32 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     
     NSString *value = [[chatHeaderNode attributeForName:@"title"] stringValue];
     value = [XMPPMessage removeSlashAndQuotes:value];
+    
+    return value;
+}
+
+- (BOOL)isChatBrowseDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatBrowseNode = [[xNode elementsForName: @"chat-browse-directive"] firstObject];
+    
+    return (chatBrowseNode != nil) ? YES : NO;
+}
+
+- (BOOL)isChatBrowseSecure {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatBrowseNode = [[xNode elementsForName: @"chat-browse-directive"] firstObject];
+    
+    return [[[chatBrowseNode attributeForName:@"secure"] stringValue] boolValue];
+}
+
+- (NSString*)chatBrowseURL {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatBrowseNode = [[xNode elementsForName: @"chat-browse-directive"] firstObject];
+    
+    NSString *value = [[chatBrowseNode attributeForName:@"url"] stringValue];
     
     return value;
 }

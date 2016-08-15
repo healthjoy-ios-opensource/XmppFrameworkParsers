@@ -8,7 +8,6 @@
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
 
-
 @implementation XMPPIQ
 
 #if DEBUG
@@ -163,6 +162,15 @@
     NSXMLElement *photoNode = [[vCardNode elementsForName: @"PHOTO"] firstObject];
     
     return [photoNode stringValue];
+}
+
+- (NSString *)binvalAvatar
+{
+    NSXMLElement *vCardNode = [[self elementsForName: @"vCard"] firstObject];
+    NSXMLElement *photoNode = [[vCardNode elementsForName: @"PHOTO"] firstObject];
+    NSXMLElement *binvalNode = [[photoNode elementsForName: @"BINVAL"] firstObject];
+    
+    return [binvalNode stringValue];
 }
 
 - (NSString *)nickname

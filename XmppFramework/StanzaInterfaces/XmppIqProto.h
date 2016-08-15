@@ -20,6 +20,7 @@
 - (NSString *)type;
 
 - (NSString *)avatar;
+- (NSString *)binvalAvatar;
 - (NSString *)nickname;
 
 /**

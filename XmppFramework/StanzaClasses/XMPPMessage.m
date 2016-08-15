@@ -607,8 +607,8 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     
 }
 
-- (BOOL)isMessageWithBody
-{
+- (BOOL)isMessageWithBody {
+    
 	return ([self elementForName:@"body"] != nil);
 }
 
@@ -620,6 +620,56 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (chatSimpleInputNode != nil) ? YES : NO;
 }
 
+- (BOOL)isChatInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatInputNode = [[xNode elementsForName: @"chat-input-directive"] firstObject];
+    
+    return (chatInputNode != nil) ? YES : NO;
+}
+
+- (NSString *)valueOfChatInputDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-input-directive"];
+    NSString *value = [[[directiveNode firstObject] attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+
+- (NSString *)chatInputDirectivePlaceholder {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatInputNode = [[xNode elementsForName: @"chat-input-directive"] firstObject];
+    NSString *value = [[chatInputNode attributeForName:@"placeholder"] stringValue];
+    
+    return value;
+}
+
+- (NSString *)chatInputDirectiveKeyboardType {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatInputNode = [[xNode elementsForName: @"chat-input-directive"] firstObject];
+    NSString *value = [[chatInputNode attributeForName:@"keyboard_type"] stringValue];
+    
+    return value;
+}
+
+- (BOOL)isChatPhotoDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatPhotoNode = [[xNode elementsForName: @"chat-photo-directive"] firstObject];
+    
+    return (chatPhotoNode != nil) ? YES : NO;
+}
+
+- (BOOL)isChatPhotoDirectiveForce {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatPhotoNode = [[xNode elementsForName: @"chat-photo-directive"] firstObject];
+    
+    return [[[chatPhotoNode attributeForName:@"force"] stringValue] boolValue];
+}
 
 - (BOOL)isChatControls {
     

@@ -655,6 +655,15 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return value;
 }
 
+- (NSString *)chatInputDirectivePattern {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatInputNode = [[xNode elementsForName: @"chat-input-directive"] firstObject];
+    NSString *value = [[chatInputNode attributeForName:@"pattern"] stringValue];
+    
+    return value;
+}
+
 - (BOOL)isChatPhotoDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];

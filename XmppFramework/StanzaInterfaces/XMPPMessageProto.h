@@ -81,6 +81,7 @@
 - (NSString *)valueOfChatInputDirective;
 - (NSString *)chatInputDirectivePlaceholder;
 - (NSString *)chatInputDirectiveKeyboardType;
+- (NSString *)chatInputDirectivePattern;
 
 - (BOOL)isChatPhotoDirective;
 - (BOOL)isChatPhotoDirectiveForce;

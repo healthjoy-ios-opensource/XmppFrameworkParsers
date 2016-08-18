@@ -672,6 +672,15 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (chatPhotoNode != nil) ? YES : NO;
 }
 
+- (NSString *)valueOfChatPhotoDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatPhotoNode = [[xNode elementsForName: @"chat-photo-directive"] firstObject];
+    NSString *value = [[chatPhotoNode attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+
 - (BOOL)isChatPhotoDirectiveForce {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];

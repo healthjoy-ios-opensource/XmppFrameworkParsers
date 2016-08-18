@@ -84,6 +84,7 @@
 - (NSString *)chatInputDirectivePattern;
 
 - (BOOL)isChatPhotoDirective;
+- (NSString *)valueOfChatPhotoDirective;
 - (BOOL)isChatPhotoDirectiveForce;
 
 - (BOOL)isChatControls;

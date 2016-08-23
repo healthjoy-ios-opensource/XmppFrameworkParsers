@@ -37,8 +37,11 @@
 - (BOOL)isMessagePresenceDirectiveLeaveDoc;
 
 - (BOOL)isMessageAutocompleteDirective;
-- (NSString *)sourceOfMessageAutocompleteDirective;
-- (NSString *)showValueOfMessageAutocompleteDirective;
+- (BOOL)isAutocompleteDirectiveForce;
+- (NSString *)listTypeOfAutocompleteDirective;
+- (NSString *)urlOfAutocompleteDirective;
+- (NSString *)valueOfAutocompleteDirective;
+- (NSString *)showValueOfAutocompleteDirective;
 
 - (BOOL)isMessagePhoneInputDirective;
 - (NSString *)valueOfMessagePhoneInputDirective;

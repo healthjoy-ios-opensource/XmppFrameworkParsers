@@ -344,24 +344,50 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (BOOL)isMessageAutocompleteDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *directiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-list-directive"];
     
     return (directiveNode.count != 0);
 }
 
-- (NSString *)sourceOfMessageAutocompleteDirective {
+- (BOOL)isAutocompleteDirectiveForce {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *directiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
-    NSString *source = [[[directiveNode firstObject] attributeForName:@"source"] stringValue];
-    
-    return source;
+    NSArray *directiveNode = [xNode elementsForName: @"chat-list-directive"];
+ 
+    return [[[[directiveNode firstObject] attributeForName:@"force"] stringValue] boolValue];
 }
 
-- (NSString *)showValueOfMessageAutocompleteDirective {
+- (NSString *)listTypeOfAutocompleteDirective {
     
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSArray *directiveNode = [xNode elementsForName: @"chat-autocomplete-directive"];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-list-directive"];
+    NSString *listType = [[[directiveNode firstObject] attributeForName:@"list_type"] stringValue];
+    
+    return listType;
+}
+
+- (NSString *)urlOfAutocompleteDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-list-directive"];
+    NSString *urlStr = [[[directiveNode firstObject] attributeForName:@"url"] stringValue];
+    
+    return urlStr;
+}
+
+- (NSString *)valueOfAutocompleteDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-list-directive"];
+    NSString *value = [[[directiveNode firstObject] attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+
+- (NSString *)showValueOfAutocompleteDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSArray *directiveNode = [xNode elementsForName: @"chat-list-directive"];
     NSString *showValue = [[[directiveNode firstObject] attributeForName:@"show_value"] stringValue];
     
     return showValue;

@@ -37,20 +37,13 @@
 - (BOOL)isMessagePresenceDirectiveLeaveDoc;
 
 - (BOOL)isMessageAutocompleteDirective;
-- (BOOL)isAutocompleteDirectiveForce;
-- (NSString *)listTypeOfAutocompleteDirective;
-- (NSString *)urlOfAutocompleteDirective;
+- (NSString *)viewTypeOfAutocompleteDirective;
+- (NSString *)placeholderOfAutocompleteDirective;
+- (NSString *)queryFilterOfAutocompleteDirective;
+- (NSString *)sourceOfAutocompleteDirective;
+- (BOOL)requiredOfAutocompleteDirective;
 - (NSString *)valueOfAutocompleteDirective;
 - (NSString *)showValueOfAutocompleteDirective;
-
-- (BOOL)isMessagePhoneInputDirective;
-- (NSString *)valueOfMessagePhoneInputDirective;
-
-- (BOOL)isMessageDobInputDirective;
-- (NSString *)valueOfMessageDobInputDirective;
-
-- (BOOL)isMessageZipInputDirective;
-- (NSString *)valueOfMessageZipInputDirective;
 
 - (BOOL)isMessageSelectDirective;
 - (NSString *)valueOfOptionDirective;
@@ -59,6 +52,7 @@
 - (NSArray *)optionDirectives;
 
 - (BOOL)isMessageSimpleSelectDirective;
+- (NSString *)chatSimpleSelectDirectiveType;
 - (NSArray *)simpleOptionDirectives;
 
 - (NSString*)chatSelectDirectiveID;
@@ -79,12 +73,9 @@
 - (BOOL)isChatSimpleInputDirective;
 - (NSString *)valueOfMessageTextInputDirective;
 - (NSString *)chatSimpleInputDirectivePlaceholder;
-
-- (BOOL)isChatInputDirective;
-- (NSString *)valueOfChatInputDirective;
-- (NSString *)chatInputDirectivePlaceholder;
-- (NSString *)chatInputDirectiveKeyboardType;
-- (NSString *)chatInputDirectivePattern;
+- (NSString *)chatSimpleInputDirectivePattern;
+- (NSString *)chatSimpleInputDirectiveMask;
+- (NSString *)chatSimpleInputDirectiveType;
 
 - (BOOL)isChatPhotoDirective;
 - (NSString *)valueOfChatPhotoDirective;

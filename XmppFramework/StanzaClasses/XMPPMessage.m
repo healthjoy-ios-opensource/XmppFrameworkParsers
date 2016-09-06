@@ -498,6 +498,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return view;
 }
 
+- (NSString *)chatSimpleSelectDirectiveTitle {
+    
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *chatSimpleSelectNode= [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
+    
+    NSString *title = [[chatSimpleSelectNode attributeForName:@"title"] stringValue];
+    
+    return title;
+}
+
 - (NSArray *)simpleOptionDirectives
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
@@ -592,15 +602,25 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (BOOL)isMessageChatJourneyUpdatedDirective
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-updated-directive"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-presentation-directive"] firstObject];
     
     return (chatSelectNode != nil) ? YES : NO;
+}
+
+- (NSString*)chatJourneyUpdatedDirectiveID {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* directiveNode = [[xNode elementsForName: @"chat-journey-presentation-directive"] firstObject];
+    
+    NSString *cardID = [[directiveNode attributeForName:@"card_id"] stringValue];
+    
+    return cardID;
 }
 
 - (NSString*)chatJourneyUpdatedDirectiveStatus
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSXMLElement* directiveNode = [[xNode elementsForName: @"chat-journey-updated-directive"] firstObject];
+    NSXMLElement* directiveNode = [[xNode elementsForName: @"chat-journey-presentation-directive"] firstObject];
     
     NSString *value = [[directiveNode attributeForName:@"status"] stringValue];
     
@@ -609,20 +629,37 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 - (NSString*)chatJourneyUpdatedDirectiveType
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-updated-directive"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-presentation-directive"] firstObject];
     
     NSString *value = [[chatSelectNode attributeForName:@"type"] stringValue];
     
     return value;
 }
+- (NSString*)chatJourneyUpdatedDirectiveViewType {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-presentation-directive"] firstObject];
+    
+    NSString *viewType = [[chatSelectNode attributeForName:@"view_type"] stringValue];
+    
+    return viewType;
+}
 - (NSString*)chatJourneyUpdatedDirectiveTitle
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
-    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-updated-directive"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-journey-presentation-directive"] firstObject];
     
     NSString *value = [[chatSelectNode attributeForName:@"title"] stringValue];
     
     return value;
+}
+
+- (BOOL)isMessageChatJourneyStatusUpdatedDirective
+{
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatJourneyNode = [[xNode elementsForName: @"chat-journey-status-updated-directive"] firstObject];
+    
+    return (chatJourneyNode != nil) ? YES : NO;
 }
 
 - (NSError *)errorMessage

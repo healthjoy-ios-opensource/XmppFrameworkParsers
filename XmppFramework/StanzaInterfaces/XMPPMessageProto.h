@@ -53,6 +53,7 @@
 
 - (BOOL)isMessageSimpleSelectDirective;
 - (NSString *)chatSimpleSelectDirectiveType;
+- (NSString *)chatSimpleSelectDirectiveTitle;
 - (NSArray *)simpleOptionDirectives;
 
 - (NSString*)chatSelectDirectiveID;
@@ -62,9 +63,13 @@
 - (NSString*)chatSimpleSelectDirectiveValue;
 
 - (BOOL)isMessageChatJourneyUpdatedDirective;
+- (NSString*)chatJourneyUpdatedDirectiveID;
 - (NSString*)chatJourneyUpdatedDirectiveStatus;
 - (NSString*)chatJourneyUpdatedDirectiveType;
+- (NSString*)chatJourneyUpdatedDirectiveViewType;
 - (NSString*)chatJourneyUpdatedDirectiveTitle;
+
+- (BOOL)isMessageChatJourneyStatusUpdatedDirective;
 
 - (NSError *)errorMessage;
 

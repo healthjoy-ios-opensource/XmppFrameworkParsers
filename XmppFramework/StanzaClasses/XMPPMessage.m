@@ -662,6 +662,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (chatJourneyNode != nil) ? YES : NO;
 }
 
+- (NSString*)chatJourneyStatusUpdatedDirectiveID {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* directiveNode = [[xNode elementsForName: @"chat-journey-status-updated-directive"] firstObject];
+    
+    NSString *cardID = [[directiveNode attributeForName:@"card_id"] stringValue];
+    
+    return cardID;
+}
+
 - (NSError *)errorMessage
 {
     if (![self isErrorMessage]) {

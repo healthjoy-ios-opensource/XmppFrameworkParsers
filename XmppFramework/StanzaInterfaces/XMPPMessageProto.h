@@ -70,6 +70,7 @@
 - (NSString*)chatJourneyUpdatedDirectiveTitle;
 
 - (BOOL)isMessageChatJourneyStatusUpdatedDirective;
+- (NSString*)chatJourneyStatusUpdatedDirectiveID;
 
 - (NSError *)errorMessage;
 

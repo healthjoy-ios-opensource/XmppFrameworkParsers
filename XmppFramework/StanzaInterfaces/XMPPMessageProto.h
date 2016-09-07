@@ -55,6 +55,8 @@
 - (NSString *)chatSimpleSelectDirectiveType;
 - (NSString *)chatSimpleSelectDirectiveTitle;
 - (NSArray *)simpleOptionDirectives;
+- (NSString *)chatDefaultOptionDirectiveValue;
+- (NSString *)chatDefaultOptionDirectiveTitle;
 
 - (NSString*)chatSelectDirectiveID;
 - (NSString*)chatSelectDirectiveTitle;

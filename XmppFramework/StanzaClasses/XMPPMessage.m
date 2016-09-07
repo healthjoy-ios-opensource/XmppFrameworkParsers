@@ -518,6 +518,25 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return optionDirectives;
 }
 
+- (NSString *)chatDefaultOptionDirectiveValue {
+    
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *chatSimpleSelectNode= [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
+    NSXMLElement* defaultOptionDirectiveNode = [[chatSimpleSelectNode elementsForName: @"default-option-directive"] firstObject];
+    
+    NSString *value = [[defaultOptionDirectiveNode attributeForName:@"value"] stringValue];
+    
+    return value;
+}
+- (NSString *)chatDefaultOptionDirectiveTitle {
+    
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *chatSimpleSelectNode= [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
+    NSXMLElement* defaultOptionDirectiveNode = [[chatSimpleSelectNode elementsForName: @"default-option-directive"] firstObject];
+    
+    return [defaultOptionDirectiveNode stringValue];
+}
+
 - (BOOL)isMessagePresenceDirective
 {
     NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];

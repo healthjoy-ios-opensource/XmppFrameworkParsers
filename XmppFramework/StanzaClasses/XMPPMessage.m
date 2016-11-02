@@ -855,6 +855,14 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return permission;
 }
 
+- (BOOL)isChatGetLocationDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-get-location-directive"] firstObject];
+    
+    return (chatCheckPermission != nil) ? YES : NO;
+}
+
 #pragma mark - Private
 
 + (NSString *)removeSlashAndQuotes:(NSString *)string {

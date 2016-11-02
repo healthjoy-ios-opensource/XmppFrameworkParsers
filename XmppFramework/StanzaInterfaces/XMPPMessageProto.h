@@ -108,4 +108,6 @@
 - (BOOL)isChatRequestPermissionDirective;
 - (NSString *)chatRequestPermissionDirectivePermission;
 
+- (BOOL)isChatGetLocationDirective;
+
 @end

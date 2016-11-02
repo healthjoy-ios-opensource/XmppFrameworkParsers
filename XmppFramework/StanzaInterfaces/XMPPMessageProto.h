@@ -102,4 +102,10 @@
 - (BOOL)isChatBrowseSecure;
 - (NSString*)chatBrowseURL;
 
+- (BOOL)isChatCheckPermissionDirective;
+- (NSString *)chatCheckPermissionDirectivePermission;
+
+- (BOOL)isChatRequestPermissionDirective;
+- (NSString *)chatRequestPermissionDirectivePermission;
+
 @end

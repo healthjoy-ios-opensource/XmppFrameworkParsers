@@ -110,4 +110,7 @@
 
 - (BOOL)isChatGetLocationDirective;
 
+- (BOOL)isChatPermissionSettingsDirective;
+- (NSString *)chatPermissionSettingsDirective;
+
 @end

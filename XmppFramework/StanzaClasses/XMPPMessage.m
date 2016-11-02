@@ -863,6 +863,23 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (chatCheckPermission != nil) ? YES : NO;
 }
 
+- (BOOL)isChatPermissionSettingsDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-permission-settings-directive"] firstObject];
+    
+    return (chatCheckPermission != nil) ? YES : NO;
+}
+
+- (NSString *)chatPermissionSettingsDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-permission-settings-directive"] firstObject];
+    
+    NSString *permission = [[chatCheckPermission attributeForName:@"permission"] stringValue];
+    return permission;
+}
+
 #pragma mark - Private
 
 + (NSString *)removeSlashAndQuotes:(NSString *)string {

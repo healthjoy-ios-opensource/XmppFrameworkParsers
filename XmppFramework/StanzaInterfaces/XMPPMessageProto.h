@@ -113,4 +113,10 @@
 - (BOOL)isChatPermissionSettingsDirective;
 - (NSString *)chatPermissionSettingsDirective;
 
+- (BOOL)isChatDisclaimerDirective;
+- (NSString *)chatDisclaimerDirectiveTitle;
+- (NSString *)chatDisclaimerDirectiveBody;
+- (NSString *)chatDisclaimerDirectiveNegativeButtonText;
+- (NSString *)chatDisclaimerDirectivePositiveButtonText;
+
 @end

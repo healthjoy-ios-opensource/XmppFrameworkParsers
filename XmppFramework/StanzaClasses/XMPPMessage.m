@@ -880,6 +880,51 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return permission;
 }
 
+- (BOOL)isChatDisclaimerDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-disclaimer-directive"] firstObject];
+    
+    return (chatCheckPermission != nil) ? YES : NO;
+    
+}
+
+- (NSString *)chatDisclaimerDirectiveTitle {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-disclaimer-directive"] firstObject];
+    
+    NSString *title = [[chatCheckPermission attributeForName:@"title"] stringValue];
+    return title;
+}
+
+- (NSString *)chatDisclaimerDirectiveBody {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-disclaimer-directive"] firstObject];
+    
+    NSString *body = [[chatCheckPermission attributeForName:@"body"] stringValue];
+    return body;
+}
+
+- (NSString *)chatDisclaimerDirectiveNegativeButtonText {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-disclaimer-directive"] firstObject];
+    
+    NSString *negative = [[chatCheckPermission attributeForName:@"negative_button_text"] stringValue];
+    return negative;
+    
+}
+- (NSString *)chatDisclaimerDirectivePositiveButtonText {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-disclaimer-directive"] firstObject];
+    
+    NSString *positive = [[chatCheckPermission attributeForName:@"positive_button_text"] stringValue];
+    return positive;
+}
+
 #pragma mark - Private
 
 + (NSString *)removeSlashAndQuotes:(NSString *)string {

@@ -886,7 +886,6 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     NSXMLElement* chatCheckPermission = [[xNode elementsForName: @"chat-disclaimer-directive"] firstObject];
     
     return (chatCheckPermission != nil) ? YES : NO;
-    
 }
 
 - (NSString *)chatDisclaimerDirectiveTitle {
@@ -923,6 +922,59 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     
     NSString *positive = [[chatCheckPermission attributeForName:@"positive_button_text"] stringValue];
     return positive;
+}
+
+- (BOOL)isChatStripeDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-stripe-directive"] firstObject];
+    
+    return (chatStripeDirective != nil) ? YES : NO;
+}
+
+- (NSString *)chatStripeDirectiveTitle {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-stripe-directive"] firstObject];
+    
+    NSString *value = [[chatStripeDirective attributeForName:@"title"] stringValue];
+    return value;
+}
+
+- (NSString *)chatStripeDirectiveAmount {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-stripe-directive"] firstObject];
+    
+    NSString *value = [[chatStripeDirective attributeForName:@"amount"] stringValue];
+    return value;
+}
+
+- (NSString *)chatStripeDirectiveCurrency {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-stripe-directive"] firstObject];
+    
+    NSString *value = [[chatStripeDirective attributeForName:@"currency"] stringValue];
+    return value;
+}
+
+- (NSString *)chatStripeDirectiveStripeApiVersion {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-stripe-directive"] firstObject];
+    
+    NSString *value = [[chatStripeDirective attributeForName:@"stripe_api_version"] stringValue];
+    return value;
+}
+
+- (NSString *)chatStripeDirectiveStripePublicKey {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-stripe-directive"] firstObject];
+    
+    NSString *value = [[chatStripeDirective attributeForName:@"stripe_public_key"] stringValue];
+    return value;
 }
 
 #pragma mark - Private

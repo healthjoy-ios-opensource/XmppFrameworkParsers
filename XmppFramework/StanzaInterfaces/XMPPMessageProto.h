@@ -119,4 +119,11 @@
 - (NSString *)chatDisclaimerDirectiveNegativeButtonText;
 - (NSString *)chatDisclaimerDirectivePositiveButtonText;
 
+- (BOOL)isChatStripeDirective;
+- (NSString *)chatStripeDirectiveTitle;
+- (NSString *)chatStripeDirectiveAmount;
+- (NSString *)chatStripeDirectiveCurrency;
+- (NSString *)chatStripeDirectiveStripeApiVersion;
+- (NSString *)chatStripeDirectiveStripePublicKey;
+
 @end

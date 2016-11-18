@@ -48,6 +48,7 @@
         NSDateFormatter* df = [NSDateFormatter new];
         {
             gregorianCal.locale = posixLocale;
+            [df setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
             df.locale = posixLocale;
             df.calendar = gregorianCal;
         }

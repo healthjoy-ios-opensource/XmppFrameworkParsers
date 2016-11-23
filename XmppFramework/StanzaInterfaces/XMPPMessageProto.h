@@ -52,6 +52,7 @@
 - (NSArray *)optionDirectives;
 
 - (BOOL)isMessageSimpleSelectDirective;
+- (BOOL)isMessageSimpleSelectDirectiveExpand;
 - (NSString *)chatSimpleSelectDirectiveType;
 - (NSString *)chatSimpleSelectDirectiveTitle;
 - (NSArray *)simpleOptionDirectives;

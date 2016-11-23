@@ -488,6 +488,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (selectDirectiveNode.count != 0);
 }
 
+- (BOOL)isMessageSimpleSelectDirectiveExpand {
+    
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *chatSimpleSelectNode= [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
+    
+    BOOL expand = [[[chatSimpleSelectNode attributeForName:@"expand"] stringValue] boolValue];
+
+    return expand;
+}
+
 - (NSString *)chatSimpleSelectDirectiveType {
     
     NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];

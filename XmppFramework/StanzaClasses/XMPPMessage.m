@@ -498,6 +498,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return expand;
 }
 
+- (NSString *)chatSimpleSelectDirectiveHeader {
+    
+    NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *chatSimpleSelectNode= [[xNode elementsForName: @"chat-simple-select-directive"] firstObject];
+    
+    NSString *header = [[chatSimpleSelectNode attributeForName:@"header"] stringValue];
+    
+    return header;
+}
+
 - (NSString *)chatSimpleSelectDirectiveType {
     
     NSXMLElement *xNode = [[self elementsForName: @"x"] firstObject];

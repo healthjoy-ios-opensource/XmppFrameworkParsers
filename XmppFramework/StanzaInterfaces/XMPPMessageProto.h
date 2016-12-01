@@ -128,4 +128,6 @@
 - (NSString *)chatStripeDirectiveStripeApiVersion;
 - (NSString *)chatStripeDirectiveStripePublicKey;
 
+- (BOOL)isChatRefreshWebViewDirective;
+
 @end

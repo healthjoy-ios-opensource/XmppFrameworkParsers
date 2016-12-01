@@ -997,6 +997,14 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return value;
 }
 
+- (BOOL)isChatRefreshWebViewDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatRefreshDirective = [[xNode elementsForName: @"chat-refresh-web-view-directive"] firstObject];
+    
+    return (chatRefreshDirective != nil) ? YES : NO;
+}
+
 #pragma mark - Private
 
 + (NSString *)removeSlashAndQuotes:(NSString *)string {

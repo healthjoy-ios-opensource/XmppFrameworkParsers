@@ -130,4 +130,7 @@
 
 - (BOOL)isChatRefreshWebViewDirective;
 
+- (BOOL)isChatAnimationSpeedDirective;
+- (NSString *)chatAnimationSpeedValueDirective;
+
 @end

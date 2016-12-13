@@ -1005,6 +1005,23 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return (chatRefreshDirective != nil) ? YES : NO;
 }
 
+- (BOOL)isChatAnimationSpeedDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatRefreshDirective = [[xNode elementsForName: @"chat-animation-speed-directive"] firstObject];
+    
+    return (chatRefreshDirective != nil) ? YES : NO;
+}
+
+- (NSString *)chatAnimationSpeedValueDirective {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatStripeDirective = [[xNode elementsForName: @"chat-animation-speed-directive"] firstObject];
+    
+    NSString *value = [[chatStripeDirective attributeForName:@"speed"] stringValue];
+    return value;
+}
+
 #pragma mark - Private
 
 + (NSString *)removeSlashAndQuotes:(NSString *)string {

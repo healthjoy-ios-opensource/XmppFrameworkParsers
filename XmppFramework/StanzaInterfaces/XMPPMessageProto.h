@@ -22,6 +22,7 @@
 - (BOOL)isXTypeResult;
 - (NSString *)subject;
 - (NSString *)body;
+- (BOOL)userInvisible;
 - (NSString *)bodyForLanguage:(NSString *)language;
 - (NSString *)thread;
 - (NSDate*)timestamp;

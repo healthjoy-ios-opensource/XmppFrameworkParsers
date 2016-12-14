@@ -232,6 +232,11 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
 	return [[self elementForName:@"body"] stringValue];
 }
 
+- (BOOL)userInvisible {
+    
+    return [[[self elementForName:@"user-invisible"] stringValue] boolValue];
+}
+
 - (NSString*)messageId
 {
     return [XMPPMessageTimestampParser parseIdFromXmlMessage: self];

@@ -134,4 +134,6 @@
 - (BOOL)isChatAnimationSpeedDirective;
 - (NSString *)chatAnimationSpeedValueDirective;
 
+- (BOOL)isChatBlankControlDirective;
+
 @end

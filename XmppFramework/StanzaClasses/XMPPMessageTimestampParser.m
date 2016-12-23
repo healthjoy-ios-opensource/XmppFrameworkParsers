@@ -31,7 +31,7 @@
     if (nil != delayElement)
     {
         elementWithTimestamp = delayElement;
-        timestampFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
+        timestampFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSz";
     }
     else
     {

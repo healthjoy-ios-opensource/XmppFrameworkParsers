@@ -623,6 +623,16 @@ static const char* objectCreationDateKey = "objectCreationDateKey";
     return value;
 }
 
+- (NSString*)chatSelectDirectiveUrl {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement* chatSelectNode = [[xNode elementsForName: @"chat-select-directive"] firstObject];
+    
+    NSString *value = [[chatSelectNode attributeForName:@"url"] stringValue];
+    
+    return value;
+}
+
 - (NSString*)chatSelectDirectiveTitle
 {
     NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];

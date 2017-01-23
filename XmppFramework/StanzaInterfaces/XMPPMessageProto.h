@@ -50,6 +50,7 @@
 - (NSString *)valueOfOptionDirective;
 - (NSString *)titleOfOptionDirective;
 - (NSString *)typeOfOptionDirective;
+- (NSString *)urlOfOptionDirective;
 - (NSArray *)optionDirectives;
 
 - (BOOL)isMessageSimpleSelectDirective;
@@ -64,7 +65,6 @@
 - (NSString*)chatSelectDirectiveID;
 - (NSString*)chatSelectDirectiveTitle;
 - (NSString*)chatSelectDirectiveValue;
-- (NSString*)chatSelectDirectiveUrl;
 
 - (NSString*)chatSimpleSelectDirectiveValue;
 

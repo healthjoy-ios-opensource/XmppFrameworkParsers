@@ -51,7 +51,9 @@
 - (NSString *)titleOfOptionDirective;
 - (NSString *)typeOfOptionDirective;
 - (NSString *)urlOfOptionDirective;
+- (id)defaultOptionDirective;
 - (NSArray *)optionDirectives;
+
 
 - (BOOL)isMessageSimpleSelectDirective;
 - (BOOL)isMessageSimpleSelectDirectiveExpand;

@@ -150,4 +150,12 @@
     return [[itemNode attributeForName:@"jid"] stringValue];
 }
 
+- (NSInteger)statusCode {
+    
+    NSXMLElement* xNode = [[self elementsForName: @"x"] firstObject];
+    NSXMLElement *itemNode = [[xNode elementsForName: @"status"] firstObject];
+    
+    return [[[itemNode attributeForName:@"code"] stringValue] integerValue];
+}
+
 @end

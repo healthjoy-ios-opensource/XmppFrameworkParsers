@@ -23,5 +23,6 @@
 - (BOOL)isErrorPresence;
 
 - (NSString *)jid;
+- (NSInteger)statusCode;
 
 @end
